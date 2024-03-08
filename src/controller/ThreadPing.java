@@ -59,9 +59,9 @@ public class ThreadPing extends Thread {
 	}
 	
 	public void uol() {
-		String google = "ping -4 -c 10 www.uol.com.br";
+		String uol = "ping -4 -c 10 www.uol.com.br";
 		try {
-			Process pUOL = Runtime.getRuntime().exec(google);
+			Process pUOL = Runtime.getRuntime().exec(uol);
 			InputStream fluxoUOL = pUOL.getInputStream();
 			InputStreamReader leitorUOL = new InputStreamReader(fluxoUOL);
 			BufferedReader bufferUOL = new BufferedReader(leitorUOL);
@@ -78,9 +78,9 @@ public class ThreadPing extends Thread {
 	}
 	
 	public void terra() {
-		String google = "ping -4 -c 10 www.terra.com.br";
+		String terra = "ping -4 -c 10 www.terra.com.br";
 		try {
-			Process pTerra = Runtime.getRuntime().exec(google);
+			Process pTerra = Runtime.getRuntime().exec(terra);
 			InputStream fluxoTerra = pTerra.getInputStream();
 			InputStreamReader leitorTerra = new InputStreamReader(fluxoTerra);
 			BufferedReader bufferTerra = new BufferedReader(leitorTerra);
@@ -88,7 +88,7 @@ public class ThreadPing extends Thread {
 			while (linhaTerra != null) {
 				if (linhaTerra.contains("avg")) {
 					String[] pingTerra = linhaTerra.split("/");
-					System.out.println("A media de ms do UOL eh de: " + pingTerra[4]);
+					System.out.println("A media de ms do Terra eh de: " + pingTerra[4]);
 				}
 				linhaTerra = bufferTerra.readLine();
 			}
